@@ -10,8 +10,10 @@ module.exports = {
         primary: "#00C9B7",
         primaryOpc1: "rgba(0,201,183,0.1)",
         textWhite: "#96B1AC",
+        textWhiter:'#c2f0e8',
         hightLightPink: "#E999DB",
-        backGround: "#344B47",
+        backGround: "#020c1b",
+        bgLighter:'#072758'
       },
       screens: {
         xs: "480px",

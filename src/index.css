@@ -2,3 +2,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    scroll-behavior: smooth;
+    font-family: "Inter", "sans-serif";
+}
+p,h1,h2,h3,h4,span,h5,h6{
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: #020c1b;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+   display: none;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #0640982b; 
+    border-radius: 10px;
+  }

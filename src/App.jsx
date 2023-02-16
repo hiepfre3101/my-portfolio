@@ -1,11 +1,30 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import DefaultLayout from "./layout/DefautLayout/DefaultLayout";
 
+import { routes } from "./routes";
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="bg-red-500 w-10 text-3xl font-bold">Hello world</h1>
-    </div>
-  )
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          {routes.map((route, index) => {
+            return (
+              <Route
+                key={index}
+                path={route.path}
+                element={
+                  <DefaultLayout>
+                    {route.element}
+                  </DefaultLayout>
+                }
+              />
+            );
+          })}
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default App;

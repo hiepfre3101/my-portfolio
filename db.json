@@ -1,19 +1,23 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+ "languages":[
+   {
+      "language":"vn",
+      "data":{}
+   },
+   {
+    "language":"en",
+    "data":{}
+   }    
+],
+"projects":[
+   {
+        "id":1,
+       "name":"EE-Watch",
+       "desc":"A web app for watch anime with English subtitles and dub for free online. People can watch their favorite anime with 1080p HD quality and update their fastest anime episodes. It is a perfect place to relax and entertain children and adults with anime about friendship, humor, and magic. In addition, users can save their favourite anime for a few time in website.",
+       "techs":["React","Scss","Vercel","GogoanimeAPI"],
+       "img":"",
+       "github":"",
+       "host":""
+   }
+]
 }
