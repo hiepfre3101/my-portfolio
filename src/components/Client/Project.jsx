@@ -3,22 +3,26 @@ import { GithubIcon, HostIcon } from "../../assets/Icon";
 const Project = ({data}) => {
   return (
     <div className="w-full flex justify-start mt-[100px]">
-      <div className="w-1/2 h-[400px] bg-green-300"></div>
+      <a href={data.host} className="w-1/2 max-h-[400px] bg-green-300" target={"_blank"}>
+        <img src={data.img} alt="" />
+      </a>
       <div className="w-1/2 flex items-end flex-col pl-6 pt-[80px]">
         <p className="text-primary tracking-widest text-sm">Feature Project</p>
-        <p className="text-[1.5rem] text-textWhiter font-semibold">{data.name}</p>
+        <a target={"_blank"} href={data.host} className="text-[1.5rem] text-textWhiter font-semibold hover:text-primary">
+          {data.name}
+        </a>
         <div className="w-full bg-bgLighter rounded-md  p-5 mt-5">
-          <p className="text-textWhite">
-           {data.desc}
-          </p>
+          <p className="text-textWhite">{data.desc}</p>
         </div>
         <div className="mt-5 flex justify-end items-center w-full gap-10">
-          <p className="text-textWhite text-sm tracking-widest">React</p>
-          <p className="text-textWhite text-sm tracking-widest">Scss</p>
-          <p className="text-textWhite text-sm tracking-widest">Vercel</p>
+          {data?.techs.map((tech, index) => (
+            <p key={index} className="text-textWhite text-sm tracking-widest">
+              {tech}
+            </p>
+          ))}
         </div>
         <div className="mt-3 flex items-center justify-end w-full gap-5">
-          <a href={data.github}>
+          <a target={"_blank"} href={data.github}>
             {" "}
             <GithubIcon
               classname={
@@ -26,7 +30,7 @@ const Project = ({data}) => {
               }
             />
           </a>
-          <a href={data.host}>
+          <a target={"_blank"} href={data.host}>
             {" "}
             <HostIcon
               classname={

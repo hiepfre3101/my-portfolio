@@ -1,4 +1,4 @@
-import Label from "./Label";
+import Label from "../../components/Client/Label";
 
 const techs = ["Javascript (ES6+)", "ReactJs", "Tailwindcss"];
 const About = () => {
@@ -16,7 +16,10 @@ const About = () => {
           </p>
           <div className="mt-3 grid grid-cols-2 w-full gap-3">
             {techs.map((tech, index) => (
-              <p className=" flex items-center gap-2 overflow-hidden before:ml-[-5px] before:rotate-45 before:block before:bg-primary before:content-[''] before:w-2 before:h-2" key={index}>
+              <p
+                className=" flex items-center gap-2 overflow-hidden before:ml-[-5px] before:rotate-45 before:block before:bg-primary before:content-[''] before:w-2 before:h-2"
+                key={index}
+              >
                 {tech}
               </p>
             ))}

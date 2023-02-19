@@ -12,8 +12,8 @@ const addProject = (project) => {
 const deleteProject = (id) => {
   return request.delete(`/projects/${id}`);
 };
-const updateProject = (product) => {
+const editProject = (product) => {
   return request.put(`/projects/${product.id}`, product);
 };
 
-export { getProjects, getProject, addProject, deleteProject, updateProject };
+export { getProjects, getProject, addProject, deleteProject, editProject };

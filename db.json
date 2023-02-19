@@ -1,23 +1,40 @@
 {
- "languages":[
-   {
-      "language":"vn",
-      "data":{}
-   },
-   {
-    "language":"en",
-    "data":{}
-   }    
-],
-"projects":[
-   {
-        "id":1,
-       "name":"EE-Watch",
-       "desc":"A web app for watch anime with English subtitles and dub for free online. People can watch their favorite anime with 1080p HD quality and update their fastest anime episodes. It is a perfect place to relax and entertain children and adults with anime about friendship, humor, and magic. In addition, users can save their favourite anime for a few time in website.",
-       "techs":["React","Scss","Vercel","GogoanimeAPI"],
-       "img":"",
-       "github":"",
-       "host":""
-   }
-]
+  "languages": [
+    {
+      "language": "vn",
+      "data": {}
+    },
+    {
+      "language": "en",
+      "data": {}
+    }
+  ],
+  "projects": [
+    {
+      "name": "Foodlum",
+      "desc": "A website for order fast food and can purchase with online banking",
+      "img": "https://res.cloudinary.com/diqyzhuc2/image/upload/v1676797883/portfolio/zcidwovfchql0bz5o6qd.png",
+      "github": "https://github.com/hiepfre3101/food_lum",
+      "host": "https://foodlum.mrhiepga.ga",
+      "techs": [
+        "PHP",
+        "Vanilla JS, HTML, CSS"
+      ],
+      "id": 2
+    },
+    {
+      "name": "EE-Watch ",
+      "desc": "A web app for watch anime with English subtitles and dub for free online. People can watch their favorite anime with 1080p HD quality and update their fastest anime episodes. It is a perfect place to relax and entertain children and adults with anime about friendship, humor, and magic. In addition, users can save their favourite anime for a few time in website.",
+      "img": "https://res.cloudinary.com/diqyzhuc2/image/upload/v1676798995/portfolio/au7frfgmbdxxiyetypii.png",
+      "github": "https://github.com/hiepfre3101/wipu-ui",
+      "host": "https://ee-wipu.vercel.app/",
+      "techs": [
+        "React",
+        "Sass",
+        "Vercel",
+        "GogoanimeApi"
+      ],
+      "id": 3
+    }
+  ]
 }
