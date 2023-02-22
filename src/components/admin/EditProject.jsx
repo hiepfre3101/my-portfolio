@@ -1,9 +1,24 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { editProject, getProject } from "~/api/projects";
+
+import Loading from "../Loading";
+import { editProject, getProject, getCategories } from "~/api/projects";
+import { uploadImage } from "~/api/image";
 
 const EditProject = () => {
-  const [dataSubmit, setDataSubmit] = useState({});
+  const [dataSubmit, setDataSubmit] = useState({
+    name: "",
+    desc: "",
+    img: "",
+    github: "",
+    host: "",
+    techs: [],
+    categoryId: "",
+    made: "",
+    year: "",
+  });
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [techValue, setTechValue] = useState("");
   const [fileImg, setFileImg] = useState();
   const [techs, setTechs] = useState(new Set([]));
@@ -11,9 +26,12 @@ const EditProject = () => {
   useEffect(() => {
     (async () => {
       try {
+        const categories = await getCategories();
+        setCategories(categories.data);
         const data = await getProject(id);
+        setLoading(false);
         setDataSubmit(data.data);
-        setTechs(data.data.techs);
+        setTechs(new Set(data.data.techs));
       } catch (error) {
         console.log(error);
       }
@@ -40,9 +58,12 @@ const EditProject = () => {
   };
   const sendData = async (data) => {
     try {
+      setLoading(true);
       let img = "";
-      fileImg ? (img = await uploadImage(fileImg)) : (img = data.img);
+      img = fileImg ? await uploadImage(fileImg) : data.img;
+      img = img ? img : data.img;
       await editProject({ ...data, img: img });
+      setLoading(false);
       navigate("/admin/projects");
     } catch (error) {
       alert(error);
@@ -53,6 +74,7 @@ const EditProject = () => {
     const arrTech = Array.from(techs);
     sendData({ ...dataSubmit, techs: arrTech });
   };
+  if (loading) return <Loading />;
   return (
     <div className="m-auto w-3/4 flex flex-col items-center gap-4">
       <h2 className="text-lg">Edit Project</h2>
@@ -61,6 +83,24 @@ const EditProject = () => {
         onSubmit={handleSubmit}
         className="flex flex-col items-center gap-4 w-full"
       >
+        <input
+          className="border border-gray-400 w-full p-3"
+          type="text"
+          placeholder="Made at"
+          name="made"
+          value={dataSubmit.made || ""}
+          onChange={handleOnChange}
+          required
+        />
+        <input
+          className="border border-gray-400 w-full p-3"
+          type="text"
+          placeholder="Year start"
+          name="year"
+          value={dataSubmit.year || ""}
+          onChange={handleOnChange}
+          required
+        />
         <input
           className="border border-gray-400 w-full p-3"
           type="text"
@@ -79,6 +119,20 @@ const EditProject = () => {
           onChange={handleOnChange}
           required
         />
+        <select
+          name="categoryId"
+          required
+          value={dataSubmit.categoryId || ""}
+          onChange={handleOnChange}
+          className="border border-gray-400 w-full p-3"
+        >
+          <option value="">Category</option>
+          {categories.map((cate) => (
+            <option value={cate.id} key={cate.id}>
+              {cate.label}
+            </option>
+          ))}
+        </select>
         <input
           className="border border-gray-400 w-full p-3"
           type="file"

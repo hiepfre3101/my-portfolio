@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <div className="w-full">
+    <div className="w-full mt-[100px]">
       <p className="text-primary tracking-widest">Hi, my name is</p>
       <span className="text-textWhiter text-[4rem] font-bold">HIEP</span>
       <p className="text-textWhite text-[4rem] font-bold">

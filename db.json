@@ -1,12 +1,29 @@
 {
-  "languages": [
+  "navAdmin": [
     {
-      "language": "vn",
-      "data": {}
+      "id": 1,
+      "path": "/admin/projects",
+      "label": "Projects"
     },
     {
-      "language": "en",
-      "data": {}
+      "id": 5,
+      "path": "/admin/category",
+      "label": "Categories"
+    },
+    {
+      "id": 2,
+      "path": "/admin/hero",
+      "label": "Hero Content"
+    },
+    {
+      "id": 3,
+      "path": "/admin/about",
+      "label": "About Content"
+    },
+    {
+      "id": 4,
+      "path": "/admin/contact",
+      "label": "Contact Infomation"
     }
   ],
   "projects": [
@@ -18,14 +35,17 @@
       "host": "https://foodlum.mrhiepga.ga",
       "techs": [
         "PHP",
-        "Vanilla JS, HTML, CSS"
+        "Vanilla JS, HTML, CSS",
+        "VNpay API"
       ],
+      "categoryId": 2,
+      "made": "College",
+      "year": "2022",
       "id": 2
     },
     {
       "name": "EE-Watch ",
       "desc": "A web app for watch anime with English subtitles and dub for free online. People can watch their favorite anime with 1080p HD quality and update their fastest anime episodes. It is a perfect place to relax and entertain children and adults with anime about friendship, humor, and magic. In addition, users can save their favourite anime for a few time in website.",
-      "img": "https://res.cloudinary.com/diqyzhuc2/image/upload/v1676798995/portfolio/au7frfgmbdxxiyetypii.png",
       "github": "https://github.com/hiepfre3101/wipu-ui",
       "host": "https://ee-wipu.vercel.app/",
       "techs": [
@@ -34,7 +54,22 @@
         "Vercel",
         "GogoanimeApi"
       ],
-      "id": 3
+      "categoryId": 1,
+      "made": "College",
+      "year": "2022",
+      "id": 3,
+      "img": "https://res.cloudinary.com/diqyzhuc2/image/upload/v1676908446/portfolio/xyyqluf9p0kwkuailnt6.png"
     }
-  ]
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "label": "UI"
+    },
+    {
+      "id": 2,
+      "label": "UI & Server"
+    }
+  ],
+  "heroContent": {}
 }

@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Sidebar from "./Sidebar";
 const AdminLayout = ({ children }) => {
   return (
-    <div className="w-full p-20">
-     <div className="mt-20"> {children}</div>
+    <div className="w-full pb-10">
+       <Sidebar/>
+     <div className="w-[80%]  absolute right-0 top-0 pt-10  overflow-auto"> {children}</div>
     </div>
   );
 };

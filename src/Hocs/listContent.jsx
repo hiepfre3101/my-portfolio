@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { deleteProject } from "~/api/projects";
+import Loading from "~/components/Loading";
 
 const listContent = (WrapComp, request) => {
   function AfterCallApi() {
@@ -27,7 +28,7 @@ const listContent = (WrapComp, request) => {
         }
       })();
     };
-    if (!loading) return <>Loading...</>;
+    if (!loading) return <Loading />;
     return <WrapComp data={projects} onDelete={handleDeleteProject} />;
   }
   return AfterCallApi;

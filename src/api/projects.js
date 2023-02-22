@@ -16,4 +16,18 @@ const editProject = (product) => {
   return request.put(`/projects/${product.id}`, product);
 };
 
-export { getProjects, getProject, addProject, deleteProject, editProject };
+const getProjectsFilter = (idCate) => {
+  return request.get(`/categories/${idCate}?_embed=projects`);
+};
+const getCategories = () => {
+  return request.get(`/categories`);
+};
+export {
+  getProjects,
+  getProject,
+  addProject,
+  deleteProject,
+  editProject,
+  getProjectsFilter,
+  getCategories,
+};

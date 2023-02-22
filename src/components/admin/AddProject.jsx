@@ -1,15 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { uploadImage } from "~/api/image";
-import { addProject } from "~/api/projects";
+import { addProject, getCategories } from "~/api/projects";
+import Loading from "../Loading";
 
 const AddProject = () => {
-  const [dataSubmit, setDataSubmit] = useState({});
+  const [dataSubmit, setDataSubmit] = useState({
+    name: "",
+    desc: "",
+    img: "",
+    github: "",
+    host: "",
+    techs: [],
+    categoryId: "",
+    made: "",
+    year: "",
+  });
+  const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState([]);
   const [techValue, setTechValue] = useState("");
   const [fileImg, setFileImg] = useState();
   const [techs, setTechs] = useState(new Set([]));
   const navigate = useNavigate();
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await getCategories();
+        setCategories(data.data);
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+    setLoading(false);
+  }, []);
   const handleOnChange = (e) => {
     setDataSubmit((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -30,8 +55,10 @@ const AddProject = () => {
   };
   const sendData = async (data) => {
     try {
+      setLoading(true);
       const img = await uploadImage(fileImg);
       await addProject({ ...data, img: img });
+      setLoading(false);
       navigate("/admin/projects");
     } catch (error) {
       alert(error);
@@ -42,6 +69,7 @@ const AddProject = () => {
     const arrTech = Array.from(techs);
     sendData({ ...dataSubmit, techs: arrTech });
   };
+  if (loading) return <Loading />;
   return (
     <div className="m-auto w-3/4 flex flex-col items-center gap-4">
       <h2 className="text-lg">New Project</h2>
@@ -50,6 +78,38 @@ const AddProject = () => {
         onSubmit={handleSubmit}
         className="flex flex-col items-center gap-4 w-full"
       >
+        <input
+          className="border border-gray-400 w-full p-3"
+          type="text"
+          placeholder="Made at"
+          name="made"
+          value={dataSubmit.made || ""}
+          onChange={handleOnChange}
+          required
+        />
+        <input
+          className="border border-gray-400 w-full p-3"
+          type="text"
+          placeholder="Year start"
+          name="year"
+          value={dataSubmit.year || ""}
+          onChange={handleOnChange}
+          required
+        />
+        <select
+          name="categoryId"
+          required
+          value={dataSubmit.categoryId || ""}
+          onChange={handleOnChange}
+          className="border border-gray-400 w-full p-3"
+        >
+          <option value="">Category</option>
+          {categories.map((cate) => (
+            <option value={cate.id} key={cate.id}>
+              {cate.label}
+            </option>
+          ))}
+        </select>
         <input
           className="border border-gray-400 w-full p-3"
           type="text"

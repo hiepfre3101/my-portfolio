@@ -1,8 +1,9 @@
 import AdminProjects from "~/components/admin/AdminProjects";
 import Home from "../pages/Home/Home";
-import Projects from "../pages/Projects/Projects";
+import ListProject from "~/pages/Projects/ListProject/ListProject";
 import AddProject from "~/components/admin/AddProject";
 import EditProject from "~/components/admin/EditProject";
+import ProjectDetail from "~/pages/Projects/ProjectDetail";
 
 export const routes = [
   {
@@ -11,7 +12,11 @@ export const routes = [
   },
   {
     path: "/projects",
-    element: <Projects />,
+    element: <ListProject />,
+  },
+  {
+    path: "/project/:id",
+    element: <ProjectDetail />,
   },
   {
     path: "/admin/projects",

@@ -3,14 +3,19 @@ import Label from "../../components/Client/Label";
 const techs = ["Javascript (ES6+)", "ReactJs", "Tailwindcss"];
 const About = () => {
   return (
-    <div className="mt-[100px]" id="about">
+    <div className="pt-[100px]" id="about">
       <Label number="1" title="About Me" />
       <div className="flex justify-between ">
-        <p className="text-textWhite w-1/2 mt-10 tracking-wide">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium,
-          tempora sit aut perferendis repudiandae quam quidem sapiente veritatis
-          qui rem possimus earum totam dolore quaerat, eum non temporibus
-          delectus corporis.
+        <div className="text-textWhite w-1/2 mt-10 tracking-wide">
+          Hello! My name is Hiep. I started learning programming in January
+          2022. I love to create things and feel excited every time I learn or
+          conquer something new, so I chose to learn{" "}
+          <span className="text-primary">Front-end</span>. Along with studying
+          in school, I always self-study on Youtube, with{" "}
+          <span className="text-primary">a good English background</span>, so I
+          can understand general materials. My current goal is to have
+          <span className="text-primary"> a job opportunity</span> with major in
+          web programming.
           <p className="mt-3">
             Here are a few technologies I have been working with:
           </p>
@@ -24,7 +29,7 @@ const About = () => {
               </p>
             ))}
           </div>
-        </p>
+        </div>
       </div>
     </div>
   );
